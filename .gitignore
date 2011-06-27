@@ -1,0 +1,14 @@
+application/config/*
+application/cache/*
+application/logs/*
+music/*
+music/**/*
+.settings/*
+public_html/phpmpreloaded
+ytget.sh
+LICENSE.md
+README.md
+.buildpath
+.project
+*.mp3
+*.flv

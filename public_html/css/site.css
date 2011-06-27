@@ -1,0 +1,51 @@
+body{
+
+}
+#playlist{
+	width: 24%;
+	float: left;
+	border: 1px solid black;
+	height: 400px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+#requests{
+	width: 24%;
+	float: left;
+	border: 1px solid black;
+	height: 400px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+#dlqueue{
+	width: 24%;
+	float: left;
+	border: 1px solid black;
+	height: 400px;	
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+#encoding{
+	width: 24%;
+	border: 1px solid black;
+	margin-left: 71%;
+	height: 400px;	
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+#library{
+	width: 96%;
+	border: 1px solid black;
+	height: 400px;	
+}
+
+#library ol{
+	width: 75em;
+}
+#library ol li{
+	float: left;
+	width: 15em;
+}
+#library br{
+	clear: left;
+}
