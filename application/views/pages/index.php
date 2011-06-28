@@ -42,9 +42,12 @@
 
 <div id="dlqueue">
 <h2>Downloading</h2>
+<a href="#" id="refresh_dlqueue">refresh</a>
+<ol id="oldlqueue">
 <?php foreach($dlqueue as $file): ?>
-<?php echo $file['file'] ;?> - <?php echo $file['status']; ?><form method="post" action="/youtube/encode" class="encode"><input type="hidden" name="file" value="<?php echo $file['file']; ?>" /><input type="submit" value="Encode" /></form><br />
+<li><?php echo $file['file'] ;?> - <?php echo $file['status']; ?><form method="post" action="/youtube/encode" class="encode"><input type="hidden" name="file" value="<?php echo $file['file']; ?>" /><input type="submit" value="Encode" /></form></li>
 <?php endforeach; ?>
+</ol>
 </div>
 
 <div id="encoding">

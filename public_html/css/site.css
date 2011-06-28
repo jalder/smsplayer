@@ -49,3 +49,7 @@ body{
 #library br{
 	clear: left;
 }
+
+#olplaylist .current{
+	font-weight: bold;
+}

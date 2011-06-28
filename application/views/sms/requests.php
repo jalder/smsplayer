@@ -9,7 +9,12 @@
 				<div class="">
 				<form id="youtube_download<?php echo $i; ?>" action="/youtube/download" method="post" class="ytdownload">
 		 			<input type="hidden" name="url" value="<?php echo $v['url']; ?>" />
-		 			<input type="hidden" name="file" value="<?php $file = explode(' ',$v['title']); echo $file[0].rand(); ?>.flv" />
+		 			<?php 
+		 			$title = str_replace(" ","_",$v['title']);
+		 			$title = str_replace("-","_",$title);
+		 			$title = preg_replace("/[^A-Za-z0-9_]/","",$title);
+		 			?>
+		 			<input type="hidden" name="file" value="<?php echo $title; ?>.flv" />
 		 			<input type="submit" value="Download" />
 					<?php echo $v['thumb'].' '.$v['title'].''; ?>
 				</form>

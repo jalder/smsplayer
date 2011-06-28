@@ -47,15 +47,38 @@ class Controller_Mpd extends Controller {
 		$MPD_PLS->pause();		
 	}
 	
+	public function action_movesong(){
+		
+		$from = $_GET['from'];
+		$to = $_GET['to'];
+		$MPD_PLS = Net_MPD::factory('Playlist');
+			if (!$MPD_PLS->connect()) {
+		    die('Connection failed: '.print_r($MPD_DB->getErrors(), true));
+		}
+		$MPD_PLS->moveSong($from,$to);
+		
+	}
+	
+	public function action_deleteSongId(){
+		$id = $_GET['id'];
+		$MPD_PLS = Net_MPD::factory('Playlist');
+			if (!$MPD_PLS->connect()) {
+		    die('Connection failed: '.print_r($MPD_DB->getErrors(), true));
+		}
+		$MPD_PLS->deleteSongId($id);	
+		
+	}
+	
 	public function action_getplaylist(){
 		$playlist = $this->getplaylist();
 		$content = '';
 		foreach($playlist['file'] as $song) : 
+		//var_dump($song);
 			if(isset($song['Artist'])&&isset($song['Title'])){
-		 		$content .= '<li>'.$song['Artist'].' - '.$song['Title'].'</li>';
+		 		$content .= '<li id="'.$song['Id'].'">'.$song['Artist'].' - '.$song['Title'].'<a href="#" class="deleteSong" id="'.$song['Id'].'">Delete</a></li>';
 			}
 			else{
-				$content .= '<li>'.$song['file'].'</li>';
+				$content .= '<li id="'.$song['Id'].'">'.$song['file'].'<a href="#" class="deleteSong" id="'.$song['Id'].'">Delete</a></li>';
 			}
 		endforeach;
 		$this->response->body($content);
@@ -137,6 +160,12 @@ class Controller_Mpd extends Controller {
 	public function action_previous(){
 		$prev = Net_MPD::factory('Playback');
 		return $prev->previousSong();
+	}
+	
+	public function action_getcurrentsong(){
+		$song = Net_MPD::factory('Playlist');
+		$song = $song->getCurrentSong();
+		return $this->response->body($song['Id']);
 	}
 	
 }

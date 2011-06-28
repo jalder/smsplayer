@@ -52,6 +52,14 @@ class Controller_Index extends Controller_Mpd {
 		}
 		return $files;
 	}
+	
+	public function action_getdlqueue(){
+		$files = $this->getdownloadqueue();
+		$view = View::factory('download/queue');
+		$view->dlqueue = $files;
+		$this->response->body($view->render());
+		
+	}
 
 	public function getencodingqueue(){
 		
