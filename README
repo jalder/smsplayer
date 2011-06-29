@@ -1,1 +1,13 @@
-Work in progress.
+##Information
+smsplayer is a php web app designed to pull sms messages from google voice.
+the messages are queried against youtube for most relevant search results.
+these results can be downloaded and encoded into mp3s and added to mpd.
+mpd can be managed and controlled from the site.
+
+Author: John Alder jack@jalder.com
+
+## Requirements
+youtube-dl
+google voice account
+ffmpeg
+mpd
